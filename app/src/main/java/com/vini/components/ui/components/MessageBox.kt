@@ -21,18 +21,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.Font
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.vini.components.R
-
-val fontFamily = FontFamily(
-    Font(R.font.inter_medium),
-    Font(R.font.inter_semibold, FontWeight.SemiBold),
-)
+import com.vini.components.ui.theme.bankFontFamily
 
 @Composable
 fun MessageBox(modifier: Modifier, message: String, type: MessageType = MessageType.DEFAULT) {
@@ -40,12 +35,12 @@ fun MessageBox(modifier: Modifier, message: String, type: MessageType = MessageT
         modifier = modifier.then(
             createModifier(type = type).padding(
                 horizontal = 16.dp,
-                vertical = 16.dp
+                vertical = 8.dp
             )
         ),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        val drawable = when(type.ordinal) {
+        val drawable = when (type.ordinal) {
             MessageType.ALERT.ordinal -> {
                 R.drawable.ic_bitcoin
             }
@@ -70,10 +65,12 @@ fun MessageBox(modifier: Modifier, message: String, type: MessageType = MessageT
         )
         Spacer(modifier = Modifier.width(8.dp))
         Text(
-            text = message, fontSize = 16.sp,
+            text = message, fontSize = 14.sp,
             color = getTextColor(type = type),
-            fontFamily = fontFamily,
-            fontWeight = FontWeight.Normal
+            maxLines = 2,
+            overflow = TextOverflow.Ellipsis,
+            fontFamily = bankFontFamily,
+            fontWeight = FontWeight.Light
         )
     }
 }
