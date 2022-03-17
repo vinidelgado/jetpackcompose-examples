@@ -1,4 +1,4 @@
-package com.vini.components.ui.components
+package com.vini.components.ui.components.bank
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
