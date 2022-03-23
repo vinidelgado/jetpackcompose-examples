@@ -1,4 +1,4 @@
-package com.vini.components.ui.components
+package com.vini.components.ui.components.bank
 
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.LinearOutSlowInEasing
@@ -55,7 +55,7 @@ fun CreditCard(creditCardName: String) {
     )
     Card(
         modifier = Modifier
-            .fillMaxWidth()
+            .fillMaxWidth().padding(horizontal = 16.dp, vertical = 8.dp)
             .animateContentSize(
                 animationSpec = tween(
                     durationMillis = 300,
